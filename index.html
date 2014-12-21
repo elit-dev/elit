@@ -64,7 +64,40 @@ $ git clone https://github.com/jhfe/Jmarcel.git
 </ul>
 <h3>
 <a id="documentation" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h3>
-
+        <p>JMarcel is very similar in it's architecture to <a href="http://codeigniter.com/">CodeIgniter</a> and will likely look
+        very familiar to you if you already have experince with CodeIgniter. However remember that JMarcel is a tiny framework
+        and does not include a lot of the functionality that comes with CodeIgniter.</p>
+        
+        <h3 id="mvc">Model-View-Controller</h3>
+        <p>PIP is based on the Model-View-Controller development pattern. MVC is a software approach that separates 
+        application logic from presentation. In practice, it permits your web pages to contain minimal scripting since 
+        the presentation is separate from the PHP scripting.</p>
+        <ul>
+            <li><strong>The Model</strong> represents your data structures. Typically your model classes will contain functions that help 
+            you retrieve, insert, and update information in your database.</li>
+            <li><strong>The View</strong> is the information that is being presented to a user. A View will normally be a web page, but can be
+            any type of "page".</li>
+            <li><strong>The Controller</strong> serves as an intermediary between the Model, the View, and any other resources needed to process 
+            the HTTP request and generate a web page.</li>
+        </ul>
+        
+        <h3 id="folder">Folder Structure</h3>
+        <p>With MVC in mind the physical layout of PIP is fairly simple. Your application specific files go in the "application"
+        folder (you don't need to touch the system folder). Inside the application folder there are folders for all of the specific
+        application entities:</p>
+        <ul>
+            <li>config</li>
+            <li>controllers</li>
+            <li>helpers</li>
+            <li>models</li>
+            <li>plugins</li>
+            <li>views</li>
+        </ul>
+        <p>When JMarcel loads files it assumes they are in the corresponding folders. So make sure you place your files in the correct folders.</p>
+        
+        <p>We encourage you to use the "static" folder in the root to store you static resource files (CSS, JS etc) however you can put them 
+        anywhere. You can also use the <code>BASE_URL</code> variable to help include files in your HTML. For example:</p>
+        <pre><code>&link rel="stylesheet" href="&lt;?php echo BASE_URL; ?&gt;static/css/style.css" type="text/css" media="screen" /&gt;</code></pre>
 
 
 <h3>
