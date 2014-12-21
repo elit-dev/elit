@@ -1,4 +1,4 @@
-mfloat
+Jmarcel
 ======
 
-MVC PHP Framework. Based on marcel Framework
+MVC PHP Framework. Based on Marcel 1.0 Framework
