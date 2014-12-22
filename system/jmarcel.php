@@ -33,9 +33,8 @@ function jmarcel()
         require_once($path);
 	} else {
         $controller = $config['error_controller'];
-        print_r($segments);
-        echo count($segments);
-//        require_once(APP_DIR . 'controllers/' . $controller . '.php');
+        require_once(APP_DIR . 'controllers/' . $controller . '.php');
+        
 	}
     
     // Check the action exists
