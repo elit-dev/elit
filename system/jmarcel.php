@@ -46,8 +46,7 @@ function jmarcel()
     }
 	
 	// Create object and call method
-        echo $controller.$action;
-	$obj = new $controller;
+  	$obj = new $controller;
     die(call_user_func_array(array($obj, $action), array_slice($segments, 2)));
 }
 
