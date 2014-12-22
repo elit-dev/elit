@@ -19,17 +19,26 @@ function jmarcel()
 	// Split the url into segments
 	$segments = explode('/', $url);
 	
+        if(count($segments)>1){
 	// Do our default checks
-	if(isset($segments[0]) && $segments[0] != '') $controller = $segments[0];
-	if(isset($segments[1]) && $segments[1] != '') $action = $segments[1];
-
+            if(isset($segments[0]) && $segments[0] != '') $controller = $segments[0];
+            if(isset($segments[1]) && $segments[1] != '') $action = $segments[1];
+      
+        }else{
+            //Case controler is the main, first parameter becomes action
+            $action = !empty($segments[0]) ?$segments[0]: $action ;
+        }
+        
+        
 	// Get our controller file
     $path = APP_DIR . 'controllers/' . $controller . '.php';
 	if(file_exists($path)){
         require_once($path);
 	} else {
         $controller = $config['error_controller'];
-        require_once(APP_DIR . 'controllers/' . $controller . '.php');
+        print_r($segments);
+        echo count($segments);
+//        require_once(APP_DIR . 'controllers/' . $controller . '.php');
 	}
     
     // Check the action exists
@@ -40,6 +49,7 @@ function jmarcel()
     }
 	
 	// Create object and call method
+  
 	$obj = new $controller;
     die(call_user_func_array(array($obj, $action), array_slice($segments, 2)));
 }

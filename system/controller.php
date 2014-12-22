@@ -35,6 +35,25 @@ class Controller {
 		header('Location: '. $config['base_url'] . $loc);
 	}
     
+                /**
+         * Method to call js or css files
+         * @param string $path js or css path file
+         * @return string  return script or link tag with file path
+         */
+        public function clientScript($path,$type)
+        {
+            
+            if($type==="js")
+                
+                return '<script src="'.$path.'"></script>'."\n";
+            elseif($type==="css")
+                
+                return'<link rel="stylesheet" href="'.$path.'">'."\n";
+            else
+                
+                return "Notice: missing argument 2 type js or css";
+            
+        }
 }
 
 ?>
