@@ -35,7 +35,7 @@ class Controller {
 		header('Location: '. $config['base_url'] . $loc);
 	}
     
-                /**
+         /**
          * Method to call js or css files
          * @param string $path js or css path file
          * @return string  return script or link tag with file path
