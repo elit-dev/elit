@@ -1,0 +1,14 @@
+{
+    "name": "elit/elit",
+    "description": "Elit Project Framework:Small MVC.",
+    "keywords": [ "Marcel","elit","framework",  "application template"],
+    "authors": [
+        {
+            "name": "jeira",
+            "email": "joao.eira@dzener.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
