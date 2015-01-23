@@ -2,6 +2,8 @@
     "name": "elit/elit",
     "description": "Elit Project Framework:Small MVC.",
     "keywords": [ "Marcel","elit","framework",  "application template"],
+    "type": "project",
+    "license": "The MIT License (MIT)",
     "authors": [
         {
             "name": "jeira",
