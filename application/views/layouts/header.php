@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/main.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/style.css" type="text/css" media="screen" />
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <script src="<?php echo ASSETS_URL  ?>js/libs/jquery/jquery.js"></script>
     <?php echo isset($clientScript) ? $clientScript :""; // Regista Css e javascript por controller action ?>
 </head>
 <body>

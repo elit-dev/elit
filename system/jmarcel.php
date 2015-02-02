@@ -6,7 +6,7 @@ function jmarcel()
     
     // Set our defaults
     $controller = $config['default_controller'];
-    $action = 'index';
+    $action = 'login';
     $url = '';
 	
 	// Get request url and script url
@@ -36,14 +36,15 @@ function jmarcel()
         require_once(APP_DIR . 'controllers/' . $controller . '.php');
         
 	}
-    
+    $action = 'action'.ucfirst($action);
     // Check the action exists
     if(!method_exists($controller, $action)){
         $controller = $config['error_controller'];
         require_once(APP_DIR . 'controllers/' . $controller . '.php');
         $action = 'index';
     }
-	
+        // uncomment to controller action debug
+//	echo $controller.$action;
 	// Create object and call method
   	$obj = new $controller;
     die(call_user_func_array(array($obj, $action), array_slice($segments, 2)));

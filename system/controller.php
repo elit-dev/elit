@@ -32,7 +32,7 @@ class Controller {
 	{
 		global $config;
 		
-		header('Location: '. $config['base_url'] . $loc);
+		header('Location: '. $config['base_url'] .'application/views/'. $loc);
 	}
     
          /**

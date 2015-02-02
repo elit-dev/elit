@@ -31,11 +31,78 @@
                                 </form>
                         <div class="form_bts">
                                 <input type="hidden" id="refurl" name="refurl" value="<?php echo $refurl; ?>" /> 
-                                <a class="bt_default blue" href="javascript:validaDados();">Login</a>
+                                <a class="bt_default blue" href="#" onclick="validaDados()">Login</a>
                         </div>
                         </div>
 
                 </div>
             </div>
         </div>
-<?php include('footer.php'); ?>
+<!-- Start Scripting -->
+	<script type="text/javascript">
+		
+		$(document).ready(function() {
+			$('#login_erro').hide();
+			$('#formlogin').submit( validaDados );
+			
+			
+			$('#email,#password').keydown(function(event) {
+			
+				if (event.keyCode == 13)
+				{
+					event.preventDefault();
+					validaDados();
+				}
+			});
+
+		});
+		
+		
+		function validaDados()
+		{
+			var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+			var msgErro = "";
+			var username = $('#email').val();
+			var password = $('#password').val();
+//			if(username == "") msgErro += '- <?php //echo LOGIN_MISSING_USERNAME;?>;<br />';
+//			if(password == "") msgErro += '- <?php //echo LOGIN_MISSING_PASSWORD;?>;<br />';
+//			if(username != "" && !filter.test(username)) msgErro += '- <?php //echo LOGIN_INVALID_USERNAME;?>;<br />';
+			
+			if(msgErro == "")
+			{
+				$('#login_erro').hide();
+				processForm(username, password);
+			}
+			else
+			{
+				$('#login_erro').show();
+				$('#login_erro').html('<span>' + msgErro + '</span>');
+			}
+		
+		}
+		
+		function processForm(username,password)
+		{
+			var timeOutLoading = setTimeout(function(){
+										$("#loading").fadeIn(600)
+									}, 3000);
+		
+			
+                       
+			$.ajax({
+			  type: 'POST',
+			  url: 'site/login',
+//			  dataType: 'json',
+			  data: { username:username, 
+			  		  password:password,
+			  		  },
+                          success: function (data) {
+//                              $('#popup_categorias').modal('hide');
+//                              window.location ='site/index';
+                              alert(data);
+                          }
+			});
+                    }
+	</script>
+	<!-- End Scripting -->
+<?php include('layouts/footer.php'); ?>
